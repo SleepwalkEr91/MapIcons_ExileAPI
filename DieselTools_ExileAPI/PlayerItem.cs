@@ -44,8 +44,8 @@ namespace DieselTools_ExileAPI
                 }
 
                 var mapTier = Entity.TryGetComponent<MapKey>(out var mapKey) ? mapKey.Tier : 0;
-                IsMap = MapTier > 0;
-                IsT17Map = MapTier == 17;
+                IsMap = mapTier > 0;
+                IsT17Map = mapTier == 17;
             }
             catch (Exception e)
             {
