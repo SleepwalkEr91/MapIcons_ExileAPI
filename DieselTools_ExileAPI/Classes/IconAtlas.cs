@@ -1,5 +1,5 @@
 ﻿using ExileCore;
-using ImGuiNET;
+using Hexa.NET.ImGui;
 using RectangleF = SharpDX.RectangleF;
 using SVector2 = System.Numerics.Vector2;
 using Bitmap = System.Drawing.Bitmap;
@@ -11,6 +11,7 @@ public class IconAtlas
     public string Name { get; }
     public string FilePath { get; }
     public nint TextureId { get; }
+    public ImTextureRef TextureRef => new() { TexID = TextureId };
     public SVector2 IconSize { get; }
     public SVector2 AtlasSize { get; }
     public int IconsPerRow { get; }

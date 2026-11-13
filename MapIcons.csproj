@@ -1,13 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net10.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <OutputType>Library</OutputType>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-
-
   <ItemGroup>
     <Reference Include="ExileCore">
       <HintPath>$(exapiPackage)\ExileCore.dll</HintPath>
@@ -18,7 +15,6 @@
       <Private>False</Private>
     </Reference>
   </ItemGroup>
-
   <!-- Content files to copy to output -->
   <ItemGroup>
     <Content Include="config\**">
@@ -28,7 +24,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-
   <!-- References to ExileApi-bundled DLLs for plugin compatibility and version safety -->
   <ItemGroup>
     <Reference Include="ExileCore">
@@ -39,8 +34,8 @@
       <HintPath>$(exapiPackage)\GameOffsets.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="ImGui.NET">
-      <HintPath>$(exapiPackage)\ImGui.NET.dll</HintPath>
+    <Reference Include="Hexa.NET.ImGui">
+      <HintPath>$(exapiPackage)\Hexa.NET.ImGui.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json">
@@ -61,12 +56,7 @@
     </Reference>
     <FrameworkReference Include="Microsoft.WindowsDesktop.App.WindowsForms" />
   </ItemGroup>
-
   <ItemGroup Condition="'$(BuildingInsideVisualStudio)' == 'true'">
     <ProjectReference Include="..\DieselTools_ExileAPI\DieselTools_ExileAPI.csproj" />
   </ItemGroup>
-
-
-
-
 </Project>

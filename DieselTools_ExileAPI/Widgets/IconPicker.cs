@@ -1,4 +1,4 @@
-﻿using ImGuiNET;
+﻿using Hexa.NET.ImGui;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -60,7 +60,7 @@ public static class IconPicker {
                     }
                     if (ImGui.IsItemHovered()) drawList.AddRectFilled(buttonPos, buttonPos + iconAtlas.IconSize, options.HoveredIconColor);
 
-                    drawList.AddImage(iconAtlas.TextureId, buttonPos, buttonPos + iconAtlas.IconSize, uv0, uv1, options.IconColor );
+                    drawList.AddImage(iconAtlas.TextureRef, buttonPos, buttonPos + iconAtlas.IconSize, uv0, uv1, options.IconColor );
                 }
             }
 

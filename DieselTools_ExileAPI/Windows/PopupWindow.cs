@@ -1,6 +1,6 @@
 ﻿using SVector4 = System.Numerics.Vector4;
 using SVector2 = System.Numerics.Vector2;
-using ImGuiNET;
+using Hexa.NET.ImGui;
 
 namespace DieselTools_ExileAPI;
 
@@ -61,9 +61,9 @@ public static class PopupWindow {
             options.Size.X - options.PanelPadding.Y - options.PanelPadding.W,
             options.Size.Y - options.TitleBarHeight - options.PanelPadding.X - options.PanelPadding.Z
         );
-        drawList.AddRectFilled(winPos, winPos + options.Size, options.BackgroundColor, 0);
+        drawList.AddRectFilled(winPos, winPos + options.Size, options.BackgroundColor, 0f);
         drawList.AddRectFilled(panelPos, panelPos + panelSize, options.PanelColor, 0.0f);
-        drawList.AddRect(panelPos, panelPos + panelSize, options.PanelBorderColor, 0.0f, ImDrawFlags.None, 1.0f);
+        drawList.AddRect(panelPos, panelPos + panelSize, options.PanelBorderColor, 0.0f, 1.0f, ImDrawFlags.None);
         if (!string.IsNullOrEmpty(options.Title)) {
             drawList.AddText(winPos + new SVector2(2, 0), options.TitleTextColor, options.Title);
         }

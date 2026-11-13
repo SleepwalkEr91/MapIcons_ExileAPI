@@ -1,4 +1,4 @@
-﻿using ImGuiNET;
+﻿using Hexa.NET.ImGui;
 using SVector2 = System.Numerics.Vector2;
 using SVector4 = System.Numerics.Vector4;
 
@@ -134,7 +134,7 @@ public static class Tooltip {
 
         // Draw background and border
         drawList.AddRectFilled(pos, pos + size, options.BackgroundColor);
-        drawList.AddRect(pos, pos + size, options.BorderColor, 0f, ImDrawFlags.None, 1f);
+        drawList.AddRect(pos, pos + size, options.BorderColor, 0f, 1f, ImDrawFlags.None);
 
         // Draw each line
         var textPos = pos + new SVector2(options.Padding.X, options.Padding.Y);

@@ -3,7 +3,7 @@ using ExileCore.PoEMemory.Elements.InventoryElements;
 using ExileCore.PoEMemory.Elements;
 using ExileCore.PoEMemory.MemoryObjects;
 using ExileCore.Shared.Enums;
-using ImGuiNET;
+using Hexa.NET.ImGui;
 using SharpDX;
 using System.Diagnostics;
 

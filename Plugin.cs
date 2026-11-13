@@ -1,6 +1,6 @@
 ﻿using ExileCore;
 using ExileCore.Shared.Cache;
-using ImGuiNET;
+using Hexa.NET.ImGui;
 using System.Drawing;
 using System.Numerics;
 using DT = DieselTools_ExileAPI;

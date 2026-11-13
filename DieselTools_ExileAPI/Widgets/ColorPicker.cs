@@ -1,4 +1,4 @@
-﻿using ImGuiNET;
+﻿using Hexa.NET.ImGui;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using SVector2 = System.Numerics.Vector2;
@@ -380,7 +380,7 @@ public static class ColorPicker {
                 ImGui.SetClipboardText(hexBuf);
             }
             if (ImGui.GetIO().KeyCtrl && ImGui.IsMouseClicked(ImGuiMouseButton.Right)) {
-                string clipboard = ImGui.GetClipboardText() ?? "";
+                string clipboard = ImGui.GetClipboardTextS() ?? "";
                 string hex = clipboard.Replace("#", "");
                 bool valid = (hex.Length == 6 || hex.Length == 8) && hex.All(c =>
                     c >= '0' && c <= '9' ||
@@ -426,7 +426,7 @@ public static class ColorPicker {
                 ImGui.SetClipboardText(rgbaBuf);
             }
             if (ImGui.GetIO().KeyCtrl && ImGui.IsMouseClicked(ImGuiMouseButton.Right)) {
-                string clipboard = ImGui.GetClipboardText() ?? "";
+                string clipboard = ImGui.GetClipboardTextS() ?? "";
                 var matches = Regex.Matches(clipboard, @"\b([0-9]{1,3})\b");
                 var parts = matches.Cast<Match>()
                     .Select(m => m.Value)

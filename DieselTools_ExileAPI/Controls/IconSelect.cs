@@ -1,4 +1,4 @@
-﻿using ImGuiNET;
+﻿using Hexa.NET.ImGui;
 using System.Text.RegularExpressions;
 using System.Xml;
 using SVector2 = System.Numerics.Vector2;
@@ -52,7 +52,7 @@ public static class IconSelect
         }
 
         var (uv0, uv1) = iconAtlas.GetIconUVs(selectedIndex);
-        drawList.AddImage(iconAtlas.TextureId, pos, pos + new SVector2(width, height), uv0, uv1, options.IconColor);
+        drawList.AddImage(iconAtlas.TextureRef, pos, pos + new SVector2(width, height), uv0, uv1, options.IconColor);
 
         if (options.BorderColor != null) drawList.AddRect(pos, pos + new SVector2(width, height), options.BorderColor.Value);
         if (options.InnerGlowColor != null) drawList.AddRect(pos + new SVector2(1, 1), pos + new SVector2(width - 1, height - 1), options.InnerGlowColor.Value);
