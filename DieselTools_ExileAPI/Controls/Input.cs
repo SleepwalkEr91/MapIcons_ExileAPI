@@ -36,7 +36,7 @@ public static class Input {
         ImGui.PushItemWidth(width - 8);
         ImGui.PushStyleColor(ImGuiCol.FrameBg, 0x00000000);
         ImGui.PushStyleColor(ImGuiCol.Border, 0x00000000);
-        changed = ImGui.InputText($"##{uniqueID}input", ref value, 128, options.InputTextFlags);
+        changed = ImGui.InputText($"##{uniqueID}input", ref value, ImGUITools.TextBufferSize(value, 128), options.InputTextFlags);
         ImGui.PopStyleColor(2);
         ImGui.PopItemWidth();
 

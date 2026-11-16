@@ -92,7 +92,7 @@ public static class DBugger
                     }
                     string logText = logString.ToString();
                     var avail = ImGui.GetContentRegionAvail();
-                    ImGui.InputTextMultiline($"{PluginName}LogText", ref logText, BUFFER_SIZE, new SVector2(avail.X -4, avail.Y-4), ImGuiInputTextFlags.ReadOnly);
+                    ImGui.InputTextMultiline($"{PluginName}LogText", ref logText, ImGUITools.TextBufferSize(logText, (int)BUFFER_SIZE, 0), new SVector2(avail.X -4, avail.Y-4), ImGuiInputTextFlags.ReadOnly);
                 
                     Panel.End(panelName);
                 }
