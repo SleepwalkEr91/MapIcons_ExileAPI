@@ -19,6 +19,7 @@ public class MapIconSettings {
 
     //existing minimap icons
     public IconDrawStates DrawState = IconDrawStates.Off;
+    public bool UseCustomIcon = false; // draw Index/Tint/Size from MapIcons.png instead of the game's icon
 
     //custom path icon settings
     public string Path = "";
