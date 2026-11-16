@@ -639,7 +639,7 @@ namespace MapIcons
                 DT.ImGUITools.Checkbox($"##CustomPathOpened{i}", "Check if Entity is Opened", ref setting.Check_IsOpened); ImGui.SameLine();
                 float inputTextWidth = ImGui.GetContentRegionAvail().X - ImGui.CalcTextSize("Remove").X - ImGui.GetStyle().ItemSpacing.X;
                 ImGui.SetNextItemWidth(inputTextWidth);
-                ImGui.InputText($"##Path{i}", ref setting.Path, 100); ImGui.SameLine();
+                ImGui.InputText($"##Path{i}", ref setting.Path, DT.ImGUITools.TextBufferSize(setting.Path, 100)); ImGui.SameLine();
                 if (ImGui.Button($"Remove##Path{i}")) Settings.RemoveCustomPathIcon(i);
             }
 
@@ -750,7 +750,7 @@ namespace MapIcons
                 if (ImGui.Button("Update")) { Plugin.IconBuilder.UpdateUserSkippedEntities(); }
                 ImGui.SameLine();
                 ImGui.SliderInt("Height", ref Settings.IgnoredEntitiesHeight, 100, 1000);
-                ImGui.InputTextMultiline("##ignoredEntitiesInput", ref Settings.ignoredPaths, 1000, new SVector2(ImGui.GetContentRegionAvail().X, Settings.IgnoredEntitiesHeight));
+                ImGui.InputTextMultiline("##ignoredEntitiesInput", ref Settings.ignoredPaths, DT.ImGUITools.TextBufferSize(Settings.ignoredPaths, 4096, 4096), new SVector2(ImGui.GetContentRegionAvail().X, Settings.IgnoredEntitiesHeight));
                 ImGui.Unindent();
             };
             if (DT.ImGUITools.CollapsingHeader("Custom Path Icons", ref Settings.CustomIconsOpen)) {

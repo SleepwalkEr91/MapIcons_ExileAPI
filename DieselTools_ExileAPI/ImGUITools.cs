@@ -7,6 +7,16 @@ namespace DieselTools_ExileAPI;
 
 public static class ImGUITools {
 
+    /// <summary>
+    /// Buffer size for ImGui.InputText/InputTextMultiline with a ref string.
+    /// Hexa.NET.ImGui passes bufSize to ImGui unchanged (ImGui.NET used
+    /// max(bufSize, text length)). If the current text is longer than bufSize,
+    /// ImGui works on a buffer smaller than its content and can crash the
+    /// whole overlay. Always leave room for the text plus some headroom.
+    /// </summary>
+    public static nuint TextBufferSize(string text, int minSize, int headroom = 256) =>
+        (nuint)Math.Max(minSize, System.Text.Encoding.UTF8.GetByteCount(text ?? string.Empty) + 1 + headroom);
+
     
 
 
