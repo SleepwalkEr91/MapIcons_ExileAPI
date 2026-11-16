@@ -86,6 +86,9 @@ public enum MapIconTypes {
     LabyrinthSawblade,
     LabyrinthSpinner,
     LabyrinthRoller,
+    // minimap icons (added later; appended to keep existing values stable)
+    Mirage,
+    Ultimatum,
 }
 
 public enum MapIconRenderers
