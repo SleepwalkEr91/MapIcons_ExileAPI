@@ -72,6 +72,18 @@ namespace MapIcons
                             DefaultSettings = new MapIconSettings { DrawState = IconDrawStates.Always }
                         },
                         new TreeIcon {
+                            Name = "Mirage",
+                            MapIconType = MapIconTypes.Mirage,
+                            Config = TreeIconConfigs.IngameIcon,
+                            DefaultSettings = new MapIconSettings { DrawState = IconDrawStates.Always }
+                        },
+                        new TreeIcon {
+                            Name = "Ultimatum",
+                            MapIconType = MapIconTypes.Ultimatum,
+                            Config = TreeIconConfigs.IngameIcon,
+                            DefaultSettings = new MapIconSettings { DrawState = IconDrawStates.Always }
+                        },
+                        new TreeIcon {
                             Name = "Waypoint",
                             MapIconType = MapIconTypes.Waypoint,
                             Config = TreeIconConfigs.IngameIcon,

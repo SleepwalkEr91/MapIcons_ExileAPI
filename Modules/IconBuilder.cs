@@ -526,6 +526,13 @@ public sealed class IconBuilder : PluginModule {
                 case string path when path.StartsWith("Metadata/MiscellaneousObjects/Breach/BreachObject"):
                     icon.Type = MapIconTypes.Breach;
                     break;
+                // "Free the Djinn" initiator (currently ...FaridunInitiatorTEMP; prefix kept short in case the TEMP suffix changes)
+                case string path when path.StartsWith("Metadata/MiscellaneousObjects/Faridun/FaridunInitiator"):
+                    icon.Type = MapIconTypes.Mirage;
+                    break;
+                case string path when path.StartsWith("Metadata/Terrain/Leagues/Ultimatum/Objects/UltimatumChallengeInteractable"):
+                    icon.Type = MapIconTypes.Ultimatum;
+                    break;
                 default:
                     icon.Type = MapIconTypes.IngameUncategorized;
                     break;
