@@ -640,7 +640,6 @@ namespace MapIcons
                 float inputTextWidth = ImGui.GetContentRegionAvail().X - ImGui.CalcTextSize("Remove").X - ImGui.GetStyle().ItemSpacing.X;
                 ImGui.SetNextItemWidth(inputTextWidth);
                 ImGui.InputText($"##Path{i}", ref setting.Path, 100); ImGui.SameLine();
-                ImGui.PopItemWidth();
                 if (ImGui.Button($"Remove##Path{i}")) Settings.RemoveCustomPathIcon(i);
             }
 
