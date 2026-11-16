@@ -672,6 +672,13 @@ namespace MapIcons
                             case TreeIconConfigs.IngameIcon:
                                 IngameIconComboBox($"##{treeIcon.Name}", ref iconSettings.DrawState); ImGui.SameLine();
                                 DT.ImGUITools.Checkbox($"##checkbox{treeIcon.Name}", $"Show {treeIcon.Name} Name", ref iconSettings.DrawName); ImGui.SameLine();
+                                DT.ImGUITools.Checkbox($"##customIcon{treeIcon.Name}", "Use own icon from MapIcons.png instead of the game's icon", ref iconSettings.UseCustomIcon); ImGui.SameLine();
+                                // Keep the row layout stable: custom icon controls are always shown, but disabled while the game icon is used.
+                                if (!iconSettings.UseCustomIcon) ImGui.BeginDisabled();
+                                DT.ColorSelect.Draw($"IIC{treeIcon.Name}", $"Icon Color", ref iconSettings.Tint); ImGui.SameLine();
+                                DT.IconSelect.Draw($"IngameIcon{treeIcon.Name}", $"Icon", ref iconSettings.Index, Plugin.IconAtlas, new DT.IconSelect.Options { IconColor = iconSettings.Tint.ToImgui() }); ImGui.SameLine();
+                                IconSizeSliderInt($"Ingame Icons Slider {treeIcon.Name}", ref iconSettings.Size, 0, 32); ImGui.SameLine();
+                                if (!iconSettings.UseCustomIcon) ImGui.EndDisabled();
                                 ImGui.Text($"{treeIcon.Name}");
                                 break;
                             case TreeIconConfigs.Monster:

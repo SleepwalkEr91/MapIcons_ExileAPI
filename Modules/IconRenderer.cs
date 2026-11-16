@@ -103,9 +103,18 @@ namespace MapIcons {
                 if (mapIcon.Renderer == MapIconRenderers.IngameIcon) {
                     if (mapIcon.Settings.DrawState == IconDrawStates.Off || (mapIcon.Settings.DrawState == IconDrawStates.Ranged && mapIcon.Entity.IsValid)) continue;
 
-                    iconFileName = mapIcon.InGameTexture.FileName;
-                    iconSize = (int)mapIcon.InGameTexture.Size;
-                    iconUV = mapIcon.InGameTexture.UV;
+                    if (mapIcon.Settings.UseCustomIcon) {
+                        // own icon from MapIcons.png (iconFileName already points at the atlas)
+                        iconSize = mapIcon.Settings.Size;
+                        iconUV = Plugin.IconAtlas.GetIconUV(mapIcon.Settings.Index);
+                        iconColor = mapIcon.Settings.Tint;
+                    }
+                    else {
+                        // the game's own minimap icon
+                        iconFileName = mapIcon.InGameTexture.FileName;
+                        iconSize = (int)mapIcon.InGameTexture.Size;
+                        iconUV = mapIcon.InGameTexture.UV;
+                    }
                     mapIcon.DrawRect = GetIconPositionRect(iconSize, iconPosition, ingameUi);
                     if (mapIcon.DrawRect == null) continue;
                     Graphics.DrawImage(iconFileName, mapIcon.DrawRect.Value, iconUV, iconColor);
