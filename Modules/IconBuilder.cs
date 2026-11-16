@@ -535,11 +535,6 @@ public sealed class IconBuilder : PluginModule {
         return icon;
     }
 
-    private static bool HasVisibleMinimapIcon(Entity entity) {
-        var minimapIcon = entity.GetComponent<MinimapIcon>();
-        return minimapIcon != null && !minimapIcon.IsHide && !string.IsNullOrEmpty(minimapIcon.Name);
-    }
-
     private MapIcon CreateIcon(Entity entity)
     {
         if (entity is null) return null;
@@ -565,9 +560,7 @@ public sealed class IconBuilder : PluginModule {
         if (entity.Type == EntityType.Daemon) return null; 
         if (entity.Type == EntityType.Error) return null;
         if (entity.Type == EntityType.WorldItem) return null; 
-        // Misc objects / terrain the game itself shows on the minimap (e.g. league portals)
-        // go to the ingame icon branch below instead of being skipped.
-        if (entity.Type == EntityType.MiscellaneousObjects && !HasVisibleMinimapIcon(entity)) return null; 
+        if (entity.Type == EntityType.MiscellaneousObjects) return null; 
         // SKIP entity paths 
         if (entity.Path.StartsWith("Metadata/NPC/Hideout")) return null;
         if (entity.Path.Contains("MapLightBot")) return null;
@@ -584,8 +577,8 @@ public sealed class IconBuilder : PluginModule {
             return icon;
         }
 
-        // SKIP entity type terrain (unless the game shows a minimap icon for it)
-        if (entity.Type == EntityType.Terrain && !HasVisibleMinimapIcon(entity)) return null; 
+        // SKIP entity type terrain 
+        if (entity.Type == EntityType.Terrain) return null; 
 
         // Ingame Icon
         if (entity.HasComponent<MinimapIcon>() && !entity.GetComponent<MinimapIcon>().IsHide) return CreateIcon_Ingame(entity);
